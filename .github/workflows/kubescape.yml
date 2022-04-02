@@ -7,7 +7,7 @@ on:
     branches: [ main ]
    
 jobs:
-  nsa-security-check:
+  security-check:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,6 +16,6 @@ jobs:
 
       - name: Install Kubescape
         run: curl -s https://raw.githubusercontent.com/armosec/kubescape/master/install.sh | /bin/bash
-        
+
       - name: Scan YAML files
-        run: kubescape scan --submit --account=a83397d8-feac-4d96-9122-e755cc26258c
+        run: kubescape scan --submit --enable-host-scan --account=a83397d8-feac-4d96-9122-e755cc26258c
